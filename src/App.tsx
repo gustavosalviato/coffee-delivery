@@ -5,11 +5,14 @@ import { BrowserRouter } from "react-router-dom"
 import { Router } from './Router'
 export const App = () => {
   return (
+
     <ThemeProvider theme={defaultTheme}>
+
       <BrowserRouter>
         <Router />
-        <GlobalStyle />
       </BrowserRouter>
+
+      <GlobalStyle />
     </ThemeProvider>
   )
 }
