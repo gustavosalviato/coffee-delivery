@@ -23,8 +23,6 @@ export const ProductItem = () => {
                     <strong>9,90</strong>
                 </span>
 
-
-
                 <div>
                     <Panel>
                         <button>
