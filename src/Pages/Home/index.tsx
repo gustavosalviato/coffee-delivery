@@ -1,9 +1,10 @@
-import { GridInfo, HomeContainer, HomeContent, HomeInfo } from "./styles"
+import { GridInfo, GridProducts, HomeContainer, HomeContent, HomeInfo } from "./styles"
 import banner from '../../assets/bannerHome.png'
 import coffee from '../../assets/coffeImg.png'
 import box from '../../assets/boxImg.png'
 import clock from '../../assets/clockImg.png'
 import cart from '../../assets/cartImg.png'
+import { ProductItem } from "./components/ProductItem"
 
 export const Home = () => (
   <>
@@ -43,9 +44,9 @@ export const Home = () => (
     <HomeContent>
       <h1>Nosso cafés</h1>
 
-      <div>
-        ...
-      </div>
+      <GridProducts>
+        <ProductItem />
+      </GridProducts>
     </HomeContent>
   </>
 

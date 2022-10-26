@@ -55,3 +55,12 @@ export const HomeContent = styled.div`
   }
 
 `
+
+
+export const GridProducts = styled.div`
+  display: grid;
+  width: 100%;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 4fr)) ;
+   
+`
