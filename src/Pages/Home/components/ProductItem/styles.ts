@@ -109,6 +109,7 @@ export const Panel = styled.div`
 `
 
 export const Buy = styled.div`  
+    margin-left: 0.5rem;
     height: 2.375;
     flex: 1;
 

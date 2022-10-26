@@ -46,6 +46,12 @@ export const Home = () => (
 
       <GridProducts>
         <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
       </GridProducts>
     </HomeContent>
   </>
