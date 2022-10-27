@@ -1,45 +1,55 @@
-import { GridIcons, GridProducts, GridTwoColums, HomeContainer } from "./styles"
-
+import { ContainerFlex, GridIcons, GridProducts, GridTwoColums, HomeContainer, IntroContainer, IntroImage } from "./styles"
 import banner from '../../assets/bannerHome.png'
-import coffee from '../../assets/coffeImg.png'
-import box from '../../assets/boxImg.png'
-import clock from '../../assets/clockImg.png'
-import cart from '../../assets/cartImg.png'
 import { ProductItem } from "./components/ProductItem"
-import { ShoppingCart } from "phosphor-react"
+import { ShoppingCart, Package, Timer, Coffee } from "phosphor-react"
 
 export const Home = () => (
   <HomeContainer>
     <GridTwoColums>
-      <div>
+      <IntroContainer>
         <h1>Encontre o café perfeito para qualquer hora do dia</h1>
 
         <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
 
 
         <GridIcons>
-          <ShoppingCart weight="fill" size={32} />
-          <span>Compra simples e segura</span>
+          <ContainerFlex bgColor="yellow-dark">
+            <ShoppingCart size={28} weight="fill" />
+            <span>Compra simples e segura </span>
+          </ContainerFlex>
 
-          <ShoppingCart weight="fill" size={32} />
-          <span>Compra simples e segura</span>
+          <ContainerFlex bgColor="gray">
+            <Package size={28} weight="fill" />
+            <span>Embalagem mantém o café intacto </span>
+          </ContainerFlex>
 
+          <ContainerFlex bgColor="yellow-dark">
+            <Timer size={28} weight="fill" />
+            <span>Entrega rápida e rastreada </span>
+          </ContainerFlex>
 
-          <ShoppingCart weight="fill" size={32} />
-          <span>Compra simples e segura</span>
-
-
-          <ShoppingCart weight="fill" size={32} />
-          <span>Compra simples e segura</span>
-
+          <ContainerFlex bgColor="purple">
+            <Coffee size={28} weight="fill" />
+            <span>O café chega fresquinho até você</span>
+          </ContainerFlex>
         </GridIcons>
+      </IntroContainer>
 
-      </div>
-
-      <img src={banner} alt="" />
+      <IntroImage src={banner} alt="" />
     </GridTwoColums>
 
+    <h1>Nosso cafés</h1>
+
     <GridProducts>
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
       <ProductItem />
       <ProductItem />
       <ProductItem />
