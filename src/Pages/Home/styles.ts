@@ -1,39 +1,52 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  height: 25rem;
-  padding: 5.75rem 10rem; 
+  width: 100%;
+  min-width: 70rem;
+  min-height: calc(100vh - 10rem);
+  padding: 0 1rem;
+  margin: 1rem auto;
+`
 
-  span{
-    height: 100%;
+export const GridTwoColums = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+
+  div{
+    margin: 10rem;    
   }
 
-  >img{
-    width: 30rem;
+  h1{
+    font-size: 3rem;
+    font-family: 'Baloo 2';
+    line-height: 1.3;
+    color: ${props => props.theme["base-title"]}
+  }
+
+  p{
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: ${props => props.theme["base-subtitle"]}
+
+  }
+
+  img{
+    margin: 5rem auto;
+    width: 29.75rem;
     height: 22.5rem;
   }
+`
+
+export const GridIcons = styled.div`
+  display: flex;
+  background-color: red;
+  justify-content: flex-start;
+  align-items: flex-start;
 
 `
-export const HomeInfo = styled.div`
-  width: 100%;
-  max-width: 50rem;
 
-  h2{
-    font-family: 'Baloo 2';
-    font-weight: 800;
-    line-height: 1.3;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  span{
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.25rem;
-    margin-bottom: 9rem;
-  } 
-`
 
 export const GridInfo = styled.div`
   display: grid;
@@ -59,6 +72,7 @@ export const HomeContent = styled.div`
 export const GridProducts = styled.div`
   display: grid;
   width: 100%;
+  padding: 0 10rem;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 4fr)) ;
    
