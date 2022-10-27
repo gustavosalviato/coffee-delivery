@@ -1,12 +1,10 @@
-import { AdressHeader, CheckoutContainer, InputCEP, InputComplemento, InputNumero, InputRua, InputBairro, ContainerInputFlex, InputCidade, InputUF, PaymentsContainer, CardContent, CardItemsSelected, TotalSection, ButtonContainer } from "./styles"
-
-import { MapPinLine, CurrencyDollar, CreditCard, Money, Bank, Minus, Plus } from 'phosphor-react'
-import logo from '../../assets/tradicional.png'
+import { AdressHeader, ButtonContainer, CardContent, CardItemsSelected, CheckoutContainer, ContainerInputFlex, GridTwoColumns, InputBairro, InputCEP, InputCidade, InputComplemento, InputNumero, InputRua, InputUF, PaymentsContainer, TotalSection } from "./styles"
 import { CarItemSelected } from "./components/CardItemSelected"
-export const Checkout = () => {
-  return (
-    <CheckoutContainer>
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react"
 
+export const Checkout = () => (
+  <CheckoutContainer>
+    <GridTwoColumns>
       <section>
         <h2>Complete seu pedido</h2>
 
@@ -14,7 +12,7 @@ export const Checkout = () => {
           <AdressHeader>
             <MapPinLine size={22} />
             <div>
-              <span>Endereço de Entrega</span >
+              <span>Endereço de Entrega</span>
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </div>
           </AdressHeader>
@@ -40,7 +38,7 @@ export const Checkout = () => {
           <AdressHeader>
             <CurrencyDollar className='svgPurple' size={22} />
             <div>
-              <span>Pagamento</span >
+              <span>Pagamento</span>
               <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
             </div>
           </AdressHeader>
@@ -67,37 +65,41 @@ export const Checkout = () => {
       </section>
 
 
-      <section>
-        <h2>Cafés selecionados</h2>
-        <CardItemsSelected>
-          <ul className="list">
-            <CarItemSelected />
-            <CarItemSelected />
-          </ul>
+        <section>
+          <h2>Cafés selecionados</h2>
+          <CardItemsSelected>
+            <ul className="list">
+              <CarItemSelected />
+              <CarItemSelected />
+            </ul>
+  
+            <TotalSection>
+              <div className='defaultLabels'>
+                <span>Total Items</span>
+                <strong>29,70</strong>
+              </div>
+  
+              <div className='defaultLabels'>
+                <span>Total Items</span>
+                <strong>29,70</strong>
+              </div>
+  
+              <div className='totalLabels'>
+                <span>Total</span>
+                <strong>29,70</strong>
+              </div>
+            </TotalSection>
+  
+            <ButtonContainer>
+              CONFIRMAR
+            </ButtonContainer>
+          </CardItemsSelected>
+        </section>
 
-          <TotalSection>
-            <div className='defaultLabels'>
-              <span>Total Items</span>
-              <strong>29,70</strong>
-            </div>
+    </GridTwoColumns>
 
-            <div className='defaultLabels'>
-              <span>Total Items</span>
-              <strong>29,70</strong>
-            </div>
+    
+      
 
-            <div className='totalLabels'>
-              <span>Total</span>
-              <strong>29,70</strong>
-            </div>
-          </TotalSection>
-
-          <ButtonContainer>
-            CONFIRMAR
-          </ButtonContainer>
-        </CardItemsSelected>
-      </section>
-
-    </CheckoutContainer >
-  )
-}
+  </CheckoutContainer>
+)

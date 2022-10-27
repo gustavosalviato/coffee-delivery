@@ -1,6 +1,6 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 import logo from '../../../../assets/tradicional.png'
-import { CardItemContainer, BasicContainer } from './styles'
+import { CardItemContainer, ContainerFlexButton, RemoveButton, TitlesAndButtonsContainer, } from './styles'
 
 
 export const CarItemSelected = () => {
@@ -8,34 +8,29 @@ export const CarItemSelected = () => {
     <CardItemContainer>
       <img src={logo} alt="" />
 
-      <div>
+
+      <TitlesAndButtonsContainer>
         <span>Expresso Tradicional</span>
 
-        <div className='divFlex'>
-          <BasicContainer>
+        <ContainerFlexButton>
+          <span>
             <button>
               <Minus />
             </button>
-
             <small>1</small>
-
             <button>
               <Plus />
             </button>
-          </BasicContainer>
+          </span>
 
-          <BasicContainer>
-            <button>
-              <Trash />
+          <RemoveButton className='removeButton'>
+            <Trash size={16} />
+            Remover
+          </RemoveButton>
+        </ContainerFlexButton>
+      </TitlesAndButtonsContainer>
 
-              REMOVER
-            </button>
-
-          </BasicContainer>
-        </div>
-      </div>
-
-      <strong>R$ 9,90</strong>
-    </CardItemContainer>
+      <strong>39,90</strong>
+    </CardItemContainer >
   )
 }

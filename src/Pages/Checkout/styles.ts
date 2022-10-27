@@ -1,26 +1,24 @@
 import styled from "styled-components";
 
 export const CheckoutContainer = styled.div`
-  display: grid;
-  max-width: 70rem;
-  width: 100%;
+  min-width: 70rem;
+  margin: 2.5rem 10rem;
+  height: 100vh;
+  padding: 0 1rem;
+`
 
+export const GridTwoColumns = styled.div`
+  display: grid;
   grid-template-columns: 40rem 1fr;
   gap: 2rem;
-  margin: 2.5rem auto;
-  padding: 0 1rem;
-  
+
   h2{
     font-family: 'Baloo 2';
-    font-weight: 700;
     font-size: 1.125rem;
-    color: ${props => props.theme["base-subtitle"]};
+    line-height: 1.3;
+    font-weight: 700;
+    color: ${props => props.theme["base-subtitle"]}
   }
-
-  @media (max-width: 768px){
-      grid-template-columns: 1fr;
-  }
-
 `
 export const CardContentBasic = styled.div`
   display: flex;
