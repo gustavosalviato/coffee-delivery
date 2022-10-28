@@ -2,9 +2,13 @@ import { useCartContext } from "../../../../context/cartContext"
 import { TotalSection, ButtonContainer } from "../../styles"
 import { CardItemSelected } from "../CardItemSelected"
 import { CardItemsSelected } from "./styles"
+import { formatPrice } from '../../../../helpers/formatPrice'
 
 export const ItemsSelected = () => {
-    const { cartItems } = useCartContext()
+    const { cartItems, totalCart } = useCartContext()
+
+    const formatTotalPrice = formatPrice(totalCart)
+
     return (
         <section>
             <h2>Cafés selecionados</h2>
@@ -31,7 +35,7 @@ export const ItemsSelected = () => {
 
                     <div className='totalLabels'>
                         <span>Total</span>
-                        <strong>29,70</strong>
+                        <strong>{formatTotalPrice}</strong>
                     </div>
                 </TotalSection>
 
