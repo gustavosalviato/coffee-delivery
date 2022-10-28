@@ -7,6 +7,11 @@ export const InputContainer = styled.div`
     border-radius: 6px;
     gap: 0.25rem;
 
+    button:disabled{
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
     button{
         color: ${props => props.theme.purple};
         background: none;
@@ -17,20 +22,19 @@ export const InputContainer = styled.div`
         transition: 0.4ms;
     }
 
-    button:hover{
+    button:not(:disabled):hover{
         color: ${props => props.theme["purple-dark"]};
-
     }
-
+    
 `
 export const InputValue = styled.input`
     width: 1.25rem;
     background: transparent;
     border: 0;
     outline: 0;
-    text-align:center !important;
+    text-align: center;
 
-    font-size: 1rem;
+    font-size: 0.875rem;
     line-height: 1.3;
     color: ${props => props.theme["base-title"]}; 
 `

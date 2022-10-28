@@ -17,18 +17,6 @@ export const ProductItemContainer = styled.div`
         margin: 0 auto;
         margin-top: calc(-7.5rem / 3);
     }
-
-    /* div>span{
-        margin-top: 0.75rem;
-
-        background-color: ${props => props.theme["yellow-light"]};
-        color: ${props => props.theme["yellow-dark"]};
-        font-weight: 700;
-        font-size: 0.625rem;
-        border-radius: 999px;
-        padding: 0.25rem 0.5rem;
-    } */
-
      strong{
         margin-top: 1rem;
         
