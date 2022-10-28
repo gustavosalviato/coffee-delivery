@@ -18,15 +18,7 @@ export const ProductItemContainer = styled.div`
         margin-top: calc(-7.5rem / 3);
     }
 
-    div{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-    }
-
-    div>span{
+    /* div>span{
         margin-top: 0.75rem;
 
         background-color: ${props => props.theme["yellow-light"]};
@@ -35,7 +27,7 @@ export const ProductItemContainer = styled.div`
         font-size: 0.625rem;
         border-radius: 999px;
         padding: 0.25rem 0.5rem;
-    }
+    } */
 
      strong{
         margin-top: 1rem;
@@ -79,41 +71,7 @@ export const ProducItemFooter = styled.footer`
     }
 
 `
-
-export const Panel = styled.div`
-    display: flex;
-    align-items: center;
-    background: ${props => props.theme["base-button"]};
-    padding: 0.5rem;
-    border-radius: 6px;
-
-    button{
-        color: ${props => props.theme.purple};
-        background: none;
-        outline: 0;
-        border: 0;
-        line-height: 0;
-
-        transition: 0.4ms;
-    }
-
-    button:hover{
-        color: ${props => props.theme["purple-dark"]};
-
-    }
-
-    small{
-        font-size: 1rem;
-        color: ${props => props.theme["base-title"]}
-    }
-`
-
-export const Buy = styled.div`  
-    margin-left: 0.5rem;
-    height: 2.375;
-    flex: 1;
-
-    button{
+export const ButtonContainer = styled.button`  
         display: flex;
         align-items: center;
 
@@ -124,11 +82,34 @@ export const Buy = styled.div`
         padding: 0.5rem;
         outline: 0;
         border: 0;
-        transition: 0.4s;
-    }
+
 
     button:hover{
         background-color: ${props => props.theme["purple"]};
     }
+
+`
+
+export const TagContainer = styled.div` 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+
+    span{
+
+        margin-top: 0.75rem;
+
+        background-color: ${props => props.theme["yellow-light"]};
+        color: ${props => props.theme["yellow-dark"]};
+        font-weight: 700;
+        font-size: 0.625rem;
+        border-radius: 999px;
+        padding: 0.25rem 0.5rem;
+    }
+`
+
+export const ContainerPrice = styled.span`
 
 `

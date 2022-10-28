@@ -1,50 +1,34 @@
-import { Buy, Panel, ProducItemFooter, ProductItemContainer } from "./styles"
+import { ButtonContainer, ContainerPrice, ProducItemFooter, ProductItemContainer, TagContainer } from "./styles"
 import tradicional from '../../../../assets/tradicional.png'
-import { Minus, Plus, ShoppingCart } from "phosphor-react"
+import { QuantityInput } from "../../../../components/QuantityInput"
+import { ShoppingCart } from "phosphor-react"
+
 export const ProductItem = () => {
-    return (
-        <ProductItemContainer>
-            <img src={tradicional} alt="" />
+	return (
+		<ProductItemContainer>
+			<img src={tradicional} alt="" />
 
-            <div>
-                <span>TRADICIONAL</span>
-                <span>TRADICIONAL</span>
-            </div>
+			<TagContainer>
+				<span>TRADICIONAL</span>
+			</TagContainer>
 
+			<strong>Expresso Tradicional</strong>
+			<p>O tradicional café feito com água quente e grãos moídos</p>
 
-            <strong>Expresso Tradicional</strong>
+			<ProducItemFooter>
+				<ContainerPrice>
+					<small>R$</small>
+					<strong>9,90</strong>
+				</ContainerPrice>
 
-            <p>O tradicional café feito com água quente e grãos moídos</p>
+				<QuantityInput />
 
+				<ButtonContainer>
+					<ShoppingCart size={22} weight="fill" />
+				</ButtonContainer>
 
-            <ProducItemFooter>
-                <span>
-                    <small>R$</small>
-                    <strong>9,90</strong>
-                </span>
+			</ProducItemFooter>
 
-                <div>
-                    <Panel>
-                        <button>
-                            <Minus weight="bold" />
-                        </button>
-                        <small>1</small>
-                        <button>
-                            <Plus weight="bold" />
-                        </button>
-                    </Panel>
-
-                    <Buy>
-                        <button>
-                            <ShoppingCart size={22} weight="fill" />
-                        </button>
-                    </Buy>
-
-                </div>
-
-
-            </ProducItemFooter>
-
-        </ProductItemContainer>
-    )
+		</ProductItemContainer >
+	)
 }
