@@ -3,6 +3,7 @@ import tradicional from '../../../../assets/tradicional.png'
 import { QuantityInput } from "../../../../components/QuantityInput"
 import { ShoppingCart } from "phosphor-react"
 import { useState } from "react"
+import { useCartContext } from "../../../../context/cartContext"
 
 export interface Coffee {
 	id: string
@@ -20,12 +21,23 @@ interface ProductItemProps {
 export const ProductItem = ({ coffee }: ProductItemProps) => {
 	const [quantity, setQuantity] = useState(1)
 
+	const { addProductToCart } = useCartContext()
+
 	const handleIncrease = () => {
 		setQuantity((state) => state + 1)
 	}
 
 	const handleDecrease = () => {
 		setQuantity((state) => state - 1)
+	}
+
+	const handleAddProductToCart = () => {
+		const coffeeToAdd = {
+			...coffee,
+			quantity
+		}
+
+		addProductToCart(coffeeToAdd)
 	}
 
 	return (
@@ -53,7 +65,7 @@ export const ProductItem = ({ coffee }: ProductItemProps) => {
 					onDecrease={handleDecrease}
 				/>
 
-				<ButtonContainer>
+				<ButtonContainer onClick={handleAddProductToCart}>
 					<ShoppingCart size={22} weight="fill" />
 				</ButtonContainer>
 
