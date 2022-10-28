@@ -3,7 +3,7 @@ import logo from '../../../../assets/tradicional.png'
 import { CardItemContainer, ContainerFlexButton, RemoveButton, TitlesAndButtonsContainer, } from './styles'
 
 
-export const CarItemSelected = () => {
+export const CardItemSelected = () => {
   return (
     <CardItemContainer>
       <img src={logo} alt="" />

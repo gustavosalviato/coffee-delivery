@@ -23,7 +23,7 @@ export const ProductItem = ({ coffee }: ProductItemProps) => {
 
 			<TagContainer>
 				{coffee.tags.map((tag) => (
-					<span>{tag}</span>
+					<span key={tag}>{tag}</span>
 				))}
 			</TagContainer>
 
