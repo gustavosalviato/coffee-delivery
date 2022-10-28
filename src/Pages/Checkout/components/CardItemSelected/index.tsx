@@ -10,18 +10,18 @@ interface CardItemSelectedProps {
 }
 
 export const CardItemSelected = ({ cartItem }: CardItemSelectedProps) => {
-  const { removeProductToCart } = useCartContext()
+  const { removeProductToCart, changeItemQuantity } = useCartContext()
 
   const handleRemoveProductToCart = () => {
     removeProductToCart(cartItem.id)
   }
 
   const handleIncrease = () => {
-
+    changeItemQuantity(cartItem.id, 'increase')
   }
 
   const handleDecrease = () => {
-
+    changeItemQuantity(cartItem.id, 'decrease')
   }
 
   return (
@@ -46,7 +46,7 @@ export const CardItemSelected = ({ cartItem }: CardItemSelectedProps) => {
         </ContainerFlexButton>
       </TitlesAndButtonsContainer>
 
-      <strong>{cartItem.price}</strong>
+      <strong>R$ {cartItem.price}</strong>
     </CardItemContainer >
   )
 }

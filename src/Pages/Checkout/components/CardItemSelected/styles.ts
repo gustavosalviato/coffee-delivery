@@ -18,9 +18,8 @@ export const CardItemContainer = styled.li`
 
   strong{
     margin-left: auto;
-    line-height: 1.3;
     color: ${props => props.theme["base-text"]};
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
   }
 `

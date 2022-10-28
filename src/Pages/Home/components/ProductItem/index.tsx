@@ -4,9 +4,10 @@ import { QuantityInput } from "../../../../components/QuantityInput"
 import { ShoppingCart } from "phosphor-react"
 import { useState } from "react"
 import { useCartContext } from "../../../../context/cartContext"
+import { coffees } from "../../../../data/coffees"
 
 export interface Coffee {
-	id: string
+	id: number
 	tags: string[]
 	name: string
 	description: string
@@ -21,9 +22,10 @@ interface ProductItemProps {
 export const ProductItem = ({ coffee }: ProductItemProps) => {
 	const [quantity, setQuantity] = useState(1)
 
-	const { addProductToCart } = useCartContext()
+	const { addProductToCart, changeItemQuantity } = useCartContext()
 
 	const handleIncrease = () => {
+		// changeItemQuantity(coffee.id)
 		setQuantity((state) => state + 1)
 	}
 

@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Coffee } from "../Pages/Home/components/ProductItem";
 import { produce } from 'immer'
-import { DRAFT_STATE } from "immer/dist/internal";
 
 export interface CartItem extends Coffee {
   quantity: number
@@ -11,7 +10,8 @@ interface cartContextType {
   cartItems: CartItem[]
   cartQuantity: number
   addProductToCart: (coffee: CartItem) => void
-  removeProductToCart: (coffee: string) => void
+  removeProductToCart: (coffeeId: number) => void
+  changeItemQuantity: (coffeeId: number, type: 'increase' | 'decrease') => void
 }
 
 export const CartContext = createContext({} as cartContextType)
@@ -43,7 +43,7 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
     setCartItems(newCart)
   }
 
-  const removeProductToCart = (coffeeId: string) => {
+  const removeProductToCart = (coffeeId: number) => {
     const coffeeAlreadyExists = cartItems.findIndex(cartItem => cartItem.id === coffeeId)
 
     const newCart = produce(cartItems, (draft) => {
@@ -55,9 +55,32 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
     setCartItems(newCart)
   }
 
+  const changeItemQuantity = (coffeeId: number, type: 'increase' | 'decrease') => {
+    const coffeeAlreadyExists = cartItems.findIndex((cartItem) => cartItem.id === coffeeId)
+
+    const newCart = produce(cartItems, (draft) => {
+      if (coffeeAlreadyExists >= 0) {
+        if (type == 'increase') {
+          draft[coffeeAlreadyExists].quantity = draft[coffeeAlreadyExists].quantity + 1
+        }
+
+        if (type == 'decrease') {
+          draft[coffeeAlreadyExists].quantity = draft[coffeeAlreadyExists].quantity - 1
+        }
+      }
+    })
+
+    setCartItems(newCart)
+  }
 
   return (
-    <CartContext.Provider value={{ cartItems, cartQuantity, addProductToCart, removeProductToCart }}>
+    <CartContext.Provider value={{
+      cartItems,
+      cartQuantity,
+      addProductToCart,
+      removeProductToCart,
+      changeItemQuantity
+    }}>
       {children}
     </CartContext.Provider>
   )

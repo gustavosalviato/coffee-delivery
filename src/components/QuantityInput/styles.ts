@@ -28,7 +28,7 @@ export const InputContainer = styled.div`
     
 `
 export const InputValue = styled.input`
-    width: 1.25rem;
+    width: 2rem;
     background: transparent;
     border: 0;
     outline: 0;
