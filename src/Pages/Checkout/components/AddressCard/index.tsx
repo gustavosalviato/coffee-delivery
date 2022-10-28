@@ -1,6 +1,6 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react"
 import { FormAddress } from "../FormAddress"
-import { AdressHeader, CardContent, ContainerInputFlex, PaymentsContainer } from "./styles"
+import { AdressHeader, CardContent, PaymentsContainer } from "./styles"
 
 export const AddressCard = () => {
 	return (
@@ -18,8 +18,6 @@ export const AddressCard = () => {
 				<FormAddress />
 
 			</CardContent>
-
-
 			<CardContent>
 				<AdressHeader>
 					<CurrencyDollar className='svgPurple' size={22} />

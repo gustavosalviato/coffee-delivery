@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { CardContentBasic } from "./components/AddressCard/styles";
 
-export const CheckoutContainer = styled.div`
+export const CheckoutContainer = styled.form`
   min-width: 70rem;
   margin: 2.5rem 10rem;
   height: 100vh;
   padding: 0 1rem;
+
 `
 
 export const GridTwoColumns = styled.div`
