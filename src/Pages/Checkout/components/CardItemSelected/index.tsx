@@ -1,36 +1,52 @@
-import { Minus, Plus, Trash } from 'phosphor-react'
+import { Coffee, Minus, Plus, Trash } from 'phosphor-react'
 import logo from '../../../../assets/tradicional.png'
+import { QuantityInput } from '../../../../components/QuantityInput'
+import { CartItem, useCartContext } from '../../../../context/cartContext'
+import { coffees } from '../../../../data/coffees'
 import { CardItemContainer, ContainerFlexButton, RemoveButton, TitlesAndButtonsContainer, } from './styles'
 
+interface CardItemSelectedProps {
+  cartItem: CartItem
+}
 
-export const CardItemSelected = () => {
+export const CardItemSelected = ({ cartItem }: CardItemSelectedProps) => {
+  const { removeProductToCart } = useCartContext()
+
+  const handleRemoveProductToCart = () => {
+    removeProductToCart(cartItem.id)
+  }
+
+  const handleIncrease = () => {
+
+  }
+
+  const handleDecrease = () => {
+
+  }
+
   return (
     <CardItemContainer>
-      <img src={logo} alt="" />
+      <img src={`/fotos/${cartItem.photo}`} alt="" />
 
 
       <TitlesAndButtonsContainer>
-        <span>Expresso Tradicional</span>
+        <span>{cartItem.name}</span>
 
         <ContainerFlexButton>
-          <span>
-            <button>
-              <Minus />
-            </button>
-            <small>1</small>
-            <button>
-              <Plus />
-            </button>
-          </span>
-
-          <RemoveButton className='removeButton'>
+          <QuantityInput
+            quantity={cartItem.quantity}
+            onDecrease={handleDecrease}
+            onIncrease={handleIncrease}
+          />
+          
+          <RemoveButton className='removeButton' onClick={handleRemoveProductToCart} >
             <Trash size={16} />
             Remover
           </RemoveButton>
         </ContainerFlexButton>
       </TitlesAndButtonsContainer>
 
-      <strong>39,90</strong>
+      <strong>{cartItem.price}</strong>
     </CardItemContainer >
   )
 }

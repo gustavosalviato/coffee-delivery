@@ -1,14 +1,21 @@
+import { useCartContext } from "../../../../context/cartContext"
 import { TotalSection, ButtonContainer } from "../../styles"
 import { CardItemSelected } from "../CardItemSelected"
 import { CardItemsSelected } from "./styles"
 
 export const ItemsSelected = () => {
+    const { cartItems } = useCartContext()
     return (
         <section>
             <h2>Cafés selecionados</h2>
             <CardItemsSelected>
                 <ul className="list">
-                    <CardItemSelected />
+                    {cartItems.map((cartItem) => (
+                        <CardItemSelected
+                            key={cartItem.id}
+                            cartItem={cartItem}
+                        />
+                    ))}
                 </ul>
 
                 <TotalSection>
@@ -18,8 +25,8 @@ export const ItemsSelected = () => {
                     </div>
 
                     <div className='defaultLabels'>
-                        <span>Total Items</span>
-                        <strong>29,70</strong>
+                        <span>Entrega</span>
+                        <strong>Grátis</strong>
                     </div>
 
                     <div className='totalLabels'>

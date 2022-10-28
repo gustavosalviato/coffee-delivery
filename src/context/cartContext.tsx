@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 import { Coffee } from "../Pages/Home/components/ProductItem";
 import { produce } from 'immer'
 
-interface CartItem extends Coffee {
+export interface CartItem extends Coffee {
   quantity: number
 }
 
@@ -10,6 +10,7 @@ interface cartContextType {
   cartItems: CartItem[]
   cartQuantity: number
   addProductToCart: (coffee: CartItem) => void
+  removeProductToCart: (coffee: string) => void
 }
 
 export const CartContext = createContext({} as cartContextType)
@@ -41,9 +42,15 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
     setCartItems(newCart)
   }
 
+  const removeProductToCart = (coffeeId: string) => {
+    const newCart = cartItems.filter((cartItem) => cartItem.id !== coffeeId)
+
+    setCartItems(newCart)
+  }
+
 
   return (
-    <CartContext.Provider value={{ cartItems, cartQuantity, addProductToCart, }}>
+    <CartContext.Provider value={{ cartItems, cartQuantity, addProductToCart, removeProductToCart }}>
       {children}
     </CartContext.Provider>
   )
