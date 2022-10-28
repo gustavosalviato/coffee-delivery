@@ -2,6 +2,7 @@ import { GridProducts, GridTwoColums, HomeContainer, IntroImage } from "./styles
 import { ProductItem } from "./components/ProductItem"
 import { Intro } from "./components/Intro"
 import banner from '../../assets/bannerHome.png'
+import { coffees } from "../../data/coffees"
 
 export const Home = () => (
   <HomeContainer>
@@ -14,7 +15,10 @@ export const Home = () => (
     <h1>Nosso cafés</h1>
 
     <GridProducts>
-      <ProductItem />
+      {coffees.map((coffee) => (
+        <ProductItem key={coffee.id} coffee={coffee} />
+      ))}
+
     </GridProducts>
 
   </HomeContainer >

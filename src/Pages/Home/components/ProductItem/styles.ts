@@ -100,13 +100,13 @@ export const TagContainer = styled.div`
     span{
 
         margin-top: 0.75rem;
-
         background-color: ${props => props.theme["yellow-light"]};
         color: ${props => props.theme["yellow-dark"]};
         font-weight: 700;
         font-size: 0.625rem;
         border-radius: 999px;
         padding: 0.25rem 0.5rem;
+        text-transform: uppercase;
     }
 `
 

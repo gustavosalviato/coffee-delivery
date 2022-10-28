@@ -3,22 +3,37 @@ import tradicional from '../../../../assets/tradicional.png'
 import { QuantityInput } from "../../../../components/QuantityInput"
 import { ShoppingCart } from "phosphor-react"
 
-export const ProductItem = () => {
+interface Coffee {
+	id: string
+	tags: string[]
+	name: string
+	description: string
+	photo: string
+	price: number
+}
+
+interface ProductItemProps {
+	coffee: Coffee
+}
+
+export const ProductItem = ({ coffee }: ProductItemProps) => {
 	return (
 		<ProductItemContainer>
-			<img src={tradicional} alt="" />
+			<img src={`/fotos/${coffee.photo}`} alt="" />
 
 			<TagContainer>
-				<span>TRADICIONAL</span>
+				{coffee.tags.map((tag) => (
+					<span>{tag}</span>
+				))}
 			</TagContainer>
 
-			<strong>Expresso Tradicional</strong>
-			<p>O tradicional café feito com água quente e grãos moídos</p>
+			<strong>{coffee.name}</strong>
+			<p>{coffee.description}</p>
 
 			<ProducItemFooter>
 				<ContainerPrice>
 					<small>R$</small>
-					<strong>9,90</strong>
+					<strong>{coffee.price}</strong>
 				</ContainerPrice>
 
 				<QuantityInput />
