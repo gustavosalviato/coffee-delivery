@@ -82,9 +82,10 @@ export const ButtonContainer = styled.button`
         padding: 0.5rem;
         outline: 0;
         border: 0;
+        transition: 0.4s;
 
 
-    button:hover{
+    &:hover{
         background-color: ${props => props.theme["purple"]};
     }
 
