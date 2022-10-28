@@ -38,7 +38,7 @@ export const CardItemSelected = ({ cartItem }: CardItemSelectedProps) => {
             onDecrease={handleDecrease}
             onIncrease={handleIncrease}
           />
-          
+
           <RemoveButton className='removeButton' onClick={handleRemoveProductToCart} >
             <Trash size={16} />
             Remover

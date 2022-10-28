@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Coffee } from "../Pages/Home/components/ProductItem";
 import { produce } from 'immer'
+import { DRAFT_STATE } from "immer/dist/internal";
 
 export interface CartItem extends Coffee {
   quantity: number
@@ -43,7 +44,13 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
   }
 
   const removeProductToCart = (coffeeId: string) => {
-    const newCart = cartItems.filter((cartItem) => cartItem.id !== coffeeId)
+    const coffeeAlreadyExists = cartItems.findIndex(cartItem => cartItem.id === coffeeId)
+
+    const newCart = produce(cartItems, (draft) => {
+      if (coffeeAlreadyExists >= 0) {
+        draft.splice(coffeeAlreadyExists, 1)
+      }
+    })
 
     setCartItems(newCart)
   }
