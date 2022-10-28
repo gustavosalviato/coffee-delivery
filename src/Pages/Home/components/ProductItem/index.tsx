@@ -3,7 +3,7 @@ import tradicional from '../../../../assets/tradicional.png'
 import { QuantityInput } from "../../../../components/QuantityInput"
 import { ShoppingCart } from "phosphor-react"
 
-interface Coffee {
+export interface Coffee {
 	id: string
 	tags: string[]
 	name: string
