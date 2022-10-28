@@ -13,7 +13,7 @@ export const coffees = [
         name: "Expresso Americano",
         description: "Expresso diluído, menos intenso que o tradicional",
         photo: "americano.png",
-        price: 9.9,
+        price: 15.50,
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ export const coffees = [
         name: "Expresso Cremoso",
         description: "Café expresso tradicional com espuma cremosa",
         photo: "cremoso.png",
-        price: 9.9,
+        price: 11.80,
     },
     {
         id: 4,
@@ -105,7 +105,7 @@ export const coffees = [
         name: "Árabe",
         description: "Bebida preparada com grãos de café árabe e especiarias",
         photo: "arabe.png",
-        price: 9.9,
+        price: 5.50,
     },
     {
         id: 14,
@@ -113,6 +113,6 @@ export const coffees = [
         name: "Irlandês",
         description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
         photo: "irlandes.png",
-        price: 9.9,
+        price: 9.70,
     },
 ];

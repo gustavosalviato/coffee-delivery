@@ -1,8 +1,7 @@
-import { Coffee, Minus, Plus, Trash } from 'phosphor-react'
-import logo from '../../../../assets/tradicional.png'
+import { Trash } from 'phosphor-react'
 import { QuantityInput } from '../../../../components/QuantityInput'
 import { CartItem, useCartContext } from '../../../../context/cartContext'
-import { coffees } from '../../../../data/coffees'
+import { formatPrice } from '../../../../helpers/formatPrice'
 import { CardItemContainer, ContainerFlexButton, RemoveButton, TitlesAndButtonsContainer, } from './styles'
 
 interface CardItemSelectedProps {
@@ -23,6 +22,8 @@ export const CardItemSelected = ({ cartItem }: CardItemSelectedProps) => {
   const handleDecrease = () => {
     changeItemQuantity(cartItem.id, 'decrease')
   }
+
+  const formattedPrice = formatPrice(cartItem.quantity * cartItem.price)
 
   return (
     <CardItemContainer>
@@ -46,7 +47,7 @@ export const CardItemSelected = ({ cartItem }: CardItemSelectedProps) => {
         </ContainerFlexButton>
       </TitlesAndButtonsContainer>
 
-      <strong>R$ {cartItem.price}</strong>
+      <strong>R$ {formattedPrice}</strong>
     </CardItemContainer >
   )
 }
