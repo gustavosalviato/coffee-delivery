@@ -79,7 +79,7 @@ export const RemoveButton = styled.button`
     padding: 0.5rem;
     border-radius: 6px;
     transition: 0.4s;
-    font-size: 0.75;
+    font-size: 0.75rem;
     line-height: 1.3;
   }
   

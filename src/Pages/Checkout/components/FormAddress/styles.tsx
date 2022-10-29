@@ -25,7 +25,6 @@ export const BasicInput = styled.input`
 
 `
 
-
 export const InputCEP = styled(BasicInput)`
   width: 12.5rem;
 `

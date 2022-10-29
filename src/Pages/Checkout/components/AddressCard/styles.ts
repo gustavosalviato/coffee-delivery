@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 
 export const CardContentBasic = styled.div`
@@ -48,7 +48,6 @@ export const AdressHeader = styled.div`
     }
   }
 `
-
 export const PaymentsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -60,5 +59,4 @@ export const MessageErrorText = styled.p`
   font-size: 0.875rem;
   align-items: stretch;
   grid-column: span 3;
-
 `
