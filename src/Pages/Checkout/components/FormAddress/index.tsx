@@ -1,26 +1,72 @@
 import { useFormContext } from "react-hook-form"
-import { ContainerInputFlex, InputRua, InputCEP, InputComplemento, InputNumero, InputBairro, InputUF, InputCidade } from "./styles"
+import { Input } from "../../../../components/Input"
+import { AddressFormContainer } from "./styles"
+
+interface ErrorsType {
+    errors: {
+        [key: string]: {
+            message: string;
+        };
+    };
+}
 
 export const FormAddress = () => {
-    const { register } = useFormContext()
+    const { register, formState } = useFormContext()
+
+    const { errors } = formState as unknown as ErrorsType
 
     return (
-        <>
-            <InputCEP placeholder="CEP" {...register('zipCode')} required />
-            <InputRua placeholder="Rua" {...register('street')} required />
+        <AddressFormContainer>
+            <Input placeholder="CEP"
+                className="cep"
+                {...register('zipCode')}
+                error={errors.zipCode?.message}
+            />
 
+            <Input
+                placeholder="Rua"
+                className="street"
+                {...register('street')}
+                error={errors.street?.message}
 
-            <ContainerInputFlex>
-                <InputNumero placeholder="Número" {...register('number')} required />
-                <InputComplemento placeholder="Complemento" {...register('complement')} required />
-            </ContainerInputFlex>
+            />
 
+            <Input
+                placeholder="Número"
+                {...register('number')}
+                error={errors.number?.message}
 
-            <ContainerInputFlex>
-                <InputBairro placeholder="Bairro" {...register('district')} required />
-                <InputCidade placeholder="Cidade" {...register('city')} required />
-                <InputUF placeholder="UF" {...register('UF')} required />
-            </ContainerInputFlex>
-        </>
+            />
+
+            <Input
+                placeholder="Complemento"
+                rightText="Opcional"
+                className="complement"
+                {...register('complement')}
+                error={errors.complement?.message}
+
+            />
+
+            <Input
+                placeholder="Bairro"
+                {...register('district')}
+                error={errors.district?.message}
+
+            />
+
+            <Input
+                placeholder="Cidade"
+                {...register('city')}
+                error={errors.city?.message}
+
+            />
+
+            <Input
+                placeholder="UF"
+                {...register('UF')}
+                error={errors.UF?.message}
+
+            />
+        </AddressFormContainer>
     )
 }

@@ -14,13 +14,13 @@ enum PaymentsMethods {
 }
 
 const AddressFormValidationSchema = zod.object({
-  zipCode: zod.string().min(1),
-  street: zod.string().min(1),
-  number: zod.string().min(1),
-  district: zod.string().min(1),
-  complement: zod.string().min(1),
-  city: zod.string().min(1),
-  UF: zod.string().min(1, 'Campo UF é Obrigatório').max(2, 'Campo UF é deve conter no máximo 2 letras'),
+  zipCode: zod.string().min(8, 'Insira um CEP válido'),
+  street: zod.string().min(1, 'Informe a rua'),
+  number: zod.string().min(1, 'Informe o número'),
+  district: zod.string().min(1, 'Informe o bairro'),
+  complement: zod.string(),
+  city: zod.string().min(1, 'Informe a cidade'),
+  UF: zod.string().min(1, 'Campo UF é Obrigatório'),
   payMethods: zod.nativeEnum(PaymentsMethods, {
     errorMap: () => {
       return { message: 'Informe o método de pagamento' }
@@ -45,6 +45,7 @@ export const Checkout = () => {
 
   const handleCreateNewAddress = (data: AddressFormData) => {
     createOrder(data)
+    console.log(data)
 
     navigate('/success')
   }
