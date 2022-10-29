@@ -1,7 +1,7 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react"
 import { FormAddress } from "../FormAddress"
 import { PaymentMethodInput } from "../PaymentMethodsInput";
-import { AdressHeader, CardContent, PaymentsContainer } from "./styles"
+import { AdressHeader, CardContent, MessageErrorText, PaymentsContainer } from "./styles"
 import { useFormContext } from 'react-hook-form'
 
 export const paymentMethods = {
@@ -21,7 +21,9 @@ export const paymentMethods = {
 
 export const AddressCard = () => {
 
-	const { register } = useFormContext()
+	const { register, formState: { errors } } = useFormContext()
+
+	const payMethodError = errors?.payMethods?.message as unknown as string
 
 	return (
 		<section>
@@ -59,6 +61,8 @@ export const AddressCard = () => {
 							{...register("payMethods")}
 						/>
 					))}
+
+					{payMethodError && <MessageErrorText>{payMethodError}</MessageErrorText>}
 				</PaymentsContainer>
 			</CardContent>
 		</section>)

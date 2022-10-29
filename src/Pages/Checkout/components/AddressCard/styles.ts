@@ -54,3 +54,11 @@ export const PaymentsContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem
 `
+
+export const MessageErrorText = styled.p`
+  color: ${props => props.theme["base-error"]};
+  font-size: 0.875rem;
+  align-items: stretch;
+  grid-column: span 3;
+
+`
