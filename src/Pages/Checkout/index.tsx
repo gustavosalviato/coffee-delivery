@@ -30,7 +30,7 @@ const AddressFormValidationSchema = zod.object({
 
 export const Checkout = () => {
 
-  const { createOrder } = useCartContext()
+  const { createOrder, clearCart } = useCartContext()
 
   const navigate = useNavigate()
 
@@ -45,7 +45,7 @@ export const Checkout = () => {
 
   const handleCreateNewAddress = (data: AddressFormData) => {
     createOrder(data)
-    console.log(data)
+    clearCart()
 
     navigate('/success')
   }
