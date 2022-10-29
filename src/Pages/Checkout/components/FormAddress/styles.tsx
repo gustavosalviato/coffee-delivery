@@ -22,6 +22,7 @@ export const BasicInput = styled.input`
   &::placeholder{
     color: ${props => props.theme["base-label"]};
   }
+
 `
 
 

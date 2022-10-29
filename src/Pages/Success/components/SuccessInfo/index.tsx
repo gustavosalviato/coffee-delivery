@@ -7,6 +7,22 @@ interface SuccessInfoProps {
 }
 
 export const SuccessInfo = ({ order }: SuccessInfoProps) => {
+
+    let formattedPayment
+
+
+    switch (order.payMethods) {
+        case 'debit':
+            formattedPayment = 'Cartão de Débito'
+        case 'credit':
+            formattedPayment = 'Cartão de Crédito'
+        case 'money':
+            formattedPayment = 'Dinheiro'
+
+        default: order.payMethods
+    }
+
+
     return (
         <AdressColumn>
             <ContainerFlex bgColor="purple">
@@ -32,7 +48,7 @@ export const SuccessInfo = ({ order }: SuccessInfoProps) => {
                 <CurrencyDollar size={28} weight="fill" />
                 <div>
                     <span>Pagamento na entrega</span>
-                    <strong>Cartão de Crédito</strong>
+                    <strong>{formattedPayment}</strong>
                 </div>
 
             </ContainerFlex>

@@ -1,8 +1,28 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react"
 import { FormAddress } from "../FormAddress"
+import { PaymentMethodInput } from "../PaymentMethodsInput";
 import { AdressHeader, CardContent, PaymentsContainer } from "./styles"
+import { useFormContext } from 'react-hook-form'
+
+export const paymentMethods = {
+	credit: {
+		label: "Cartão de crédito",
+		icon: <CreditCard size={16} />,
+	},
+	debit: {
+		label: "Cartão de débito",
+		icon: <Bank size={16} />,
+	},
+	money: {
+		label: "Dinheiro",
+		icon: <Money size={16} />,
+	},
+};
 
 export const AddressCard = () => {
+
+	const { register } = useFormContext()
+
 	return (
 		<section>
 			<h2>Complete seu pedido</h2>
@@ -29,22 +49,16 @@ export const AddressCard = () => {
 				</AdressHeader>
 
 				<PaymentsContainer>
-					<div>
-						<CreditCard size={16} />
-						cartão de crédito
-					</div>
-
-					<div>
-						<Bank size={16} />
-						<span>cartão de débito</span>
-					</div>
-
-
-					<div>
-						<Money size={16} />
-						<span>dinheiro</span>
-					</div>
-
+					{Object.entries(paymentMethods).map(([key, { label, icon }]) => (
+						<PaymentMethodInput
+							key={label}
+							id={key}
+							icon={icon}
+							label={label}
+							value={key}
+							{...register("payMethods")}
+						/>
+					))}
 				</PaymentsContainer>
 			</CardContent>
 		</section>)

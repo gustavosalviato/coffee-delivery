@@ -11,7 +11,8 @@ export interface OrderData {
   district: string,
   complement: string,
   city: string,
-  UF: string
+  UF: string,
+  payMethods: string;
 }
 
 export interface CartItem extends Coffee {
@@ -99,7 +100,9 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
       number: data.number,
       UF: data.UF,
       zipCode: data.zipCode,
-      street: data.street
+      street: data.street,
+      payMethods: data.payMethods
+
     }
 
     setOrder(newOrder)

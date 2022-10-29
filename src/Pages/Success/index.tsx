@@ -14,7 +14,7 @@ export const Success = () => {
 
       <GriTwoColumns>
 
-        <SuccessInfo order={order}/>
+        <SuccessInfo order={order} />
 
         <IlustrationImage src={ilustration} alt="" />
       </GriTwoColumns>
