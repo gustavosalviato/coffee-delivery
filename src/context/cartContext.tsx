@@ -1,8 +1,8 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { Coffee } from "../Pages/Home/components/ProductItem";
 import { produce } from 'immer'
-import { number } from "zod";
-import { FileZip } from "phosphor-react";
+
+const COFFE_ITEMS_STORAGE_KEY = '@coffe-delivery-ignite:1.0.0'
 
 export interface OrderData {
   zipCode: string,
@@ -37,7 +37,15 @@ interface cartContextProviderProps {
 }
 
 export const CartContextProvider = ({ children }: cartContextProviderProps) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = localStorage.getItem(COFFE_ITEMS_STORAGE_KEY)
+
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems)
+    }
+
+    return []
+  })
   const [order, setOrder] = useState({} as OrderData)
 
   const cartQuantity = cartItems.length
@@ -107,6 +115,11 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
 
     setOrder(newOrder)
   }
+
+
+  useEffect(() => {
+    localStorage.setItem(COFFE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
+  }, [cartItems])
 
 
   return (
