@@ -1,14 +1,19 @@
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react"
+import { OrderData } from "../../../../context/cartContext"
 import { AdressColumn, ContainerFlex } from "./styles"
 
-export const SuccessInfo = () => {
+interface SuccessInfoProps {
+    order: OrderData
+}
+
+export const SuccessInfo = ({ order }: SuccessInfoProps) => {
     return (
         <AdressColumn>
             <ContainerFlex bgColor="purple">
                 <MapPin size={28} weight="fill" />
                 <div>
-                    <span>Entrega em Rua João Daniel Martinelli, 102</span>
-                    <strong>Farrapos - Porto Alegre, RS</strong>
+                    <span>Entrega em {order.street}, {order.number}</span>
+                    <strong>{order.district} - {order.city}, {order.UF}</strong>
                 </div>
 
             </ContainerFlex>

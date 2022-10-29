@@ -1,21 +1,26 @@
 import { SuccessContainer, SucessSubtitle, SuccessTitle, GriTwoColumns, IlustrationImage } from "./styles"
 import ilustration from '../../assets/ilustration.png'
 import { SuccessInfo } from "./components/SuccessInfo"
+import { useCartContext } from "../../context/cartContext"
 
+export const Success = () => {
+  const { order } = useCartContext()
 
-export const Success = () => (
-  <SuccessContainer>
-    <SuccessTitle>Uhu! Pedido confirmado</SuccessTitle>
+  return (
+    <SuccessContainer >
+      <SuccessTitle>Uhu! Pedido confirmado</SuccessTitle>
 
-    <SucessSubtitle>Agora é só aguardar que logo o café chegará até você</SucessSubtitle>
+      <SucessSubtitle>Agora é só aguardar que logo o café chegará até você</SucessSubtitle>
 
-    <GriTwoColumns>
+      <GriTwoColumns>
 
-      <SuccessInfo />
+        <SuccessInfo order={order}/>
 
-      <IlustrationImage src={ilustration} alt="" />
-    </GriTwoColumns>
+        <IlustrationImage src={ilustration} alt="" />
+      </GriTwoColumns>
 
-  </SuccessContainer>
+    </SuccessContainer >
+  )
 
-)
+}
+

@@ -1,6 +1,18 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Coffee } from "../Pages/Home/components/ProductItem";
 import { produce } from 'immer'
+import { number } from "zod";
+import { FileZip } from "phosphor-react";
+
+export interface OrderData {
+  zipCode: string,
+  street: string,
+  number: string
+  district: string,
+  complement: string,
+  city: string,
+  UF: string
+}
 
 export interface CartItem extends Coffee {
   quantity: number
@@ -10,9 +22,11 @@ interface cartContextType {
   cartItems: CartItem[]
   cartQuantity: number
   totalCart: number
+  order: OrderData
   addProductToCart: (coffee: CartItem) => void
   removeProductToCart: (coffeeId: number) => void
   changeItemQuantity: (coffeeId: number, type: 'increase' | 'decrease') => void
+  createOrder: (data: OrderData) => void
 }
 
 export const CartContext = createContext({} as cartContextType)
@@ -23,8 +37,7 @@ interface cartContextProviderProps {
 
 export const CartContextProvider = ({ children }: cartContextProviderProps) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
-
-  console.log(cartItems)
+  const [order, setOrder] = useState({} as OrderData)
 
   const cartQuantity = cartItems.length
 
@@ -78,6 +91,21 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
     return acc += som.price * som.quantity
   }, 0)
 
+  const createOrder = (data: OrderData) => {
+    const newOrder: OrderData = {
+      city: data.city,
+      complement: data.complement,
+      district: data.district,
+      number: data.number,
+      UF: data.UF,
+      zipCode: data.zipCode,
+      street: data.street
+    }
+
+    setOrder(newOrder)
+  }
+
+
   return (
     <CartContext.Provider value={{
       cartItems,
@@ -85,7 +113,9 @@ export const CartContextProvider = ({ children }: cartContextProviderProps) => {
       addProductToCart,
       removeProductToCart,
       changeItemQuantity,
-      totalCart
+      createOrder,
+      totalCart,
+      order
     }}>
       {children}
     </CartContext.Provider>

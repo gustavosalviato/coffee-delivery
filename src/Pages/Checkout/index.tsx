@@ -5,6 +5,13 @@ import * as zod from 'zod'
 import { useForm, FormProvider } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
+import { useCartContext } from "../../context/cartContext"
+
+enum PaymentsMethods {
+  credit = 'credit',
+  money = 'money',
+  debit = 'debit',
+}
 
 const AddressFormValidationSchema = zod.object({
   zipCode: zod.string().min(1),
@@ -14,9 +21,16 @@ const AddressFormValidationSchema = zod.object({
   complement: zod.string().min(1),
   city: zod.string().min(1),
   UF: zod.string().min(1, 'Campo UF é Obrigatório').max(2, 'Campo UF é deve conter no máximo 2 letras'),
+  payMethods: zod.nativeEnum(PaymentsMethods, {
+    errorMap: () => {
+      return { message: 'Informe o método de pagamento' }
+    }
+  })
 })
 
 export const Checkout = () => {
+
+  const { createOrder } = useCartContext()
 
   const navigate = useNavigate()
 
@@ -30,10 +44,9 @@ export const Checkout = () => {
   const { handleSubmit } = newAddressForm
 
   const handleCreateNewAddress = (data: AddressFormData) => {
-    console.log(data)
+    createOrder(data)
 
     navigate('/success')
-
   }
 
   return (
@@ -44,7 +57,6 @@ export const Checkout = () => {
 
           <ItemsSelected />
 
-          <button>TESTE</button>
         </GridTwoColumns>
       </FormProvider>
     </CheckoutContainer >

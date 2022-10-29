@@ -57,22 +57,23 @@ export const PaymentsContainer = styled.div`
   div{
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 0.75rem;
+    font-size: 0.75rem;
     
     background: ${props => props.theme["base-button"]};
+    color: ${props => props.theme["base-text"]};
+    height: 3rem;
     border-radius: 6px;
     padding: 1rem;
     transition: 0.4s;
     cursor: pointer;
+    text-transform: uppercase;  
+    border: 1px solid ${props => props.theme["base-button"]};
+    user-select: none;
 
     svg{
       color: ${props => props.theme.purple}
-    }
-
-    span{
-      text-transform: uppercase;
-      color: ${props => props.theme["base-text"]};
-      font-size: 0.75rem;
     }
   }
 

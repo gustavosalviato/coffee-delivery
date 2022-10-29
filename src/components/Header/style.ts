@@ -45,10 +45,27 @@ export const HeaderContainer = styled.header`
     border-radius: 6px;  
     font-size: 0.875rem;  
     line-height: 1.3;
-    gap: 0.25rem;
+    gap: 0.25rem;    
+    background-color: ${props => props.theme["yellow-light"]};
+    color: ${props => props.theme["yellow-dark"]};
+    position: relative;
 
-    
-   background-color: ${props => props.theme["yellow-light"]};
-   color: ${props => props.theme["yellow-dark"]};
+
+    span{
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      top: calc(-1.25rem / 2);
+      right: calc(-1.25rem / 2);
+      color: ${props => props.theme.white};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: ${props => props.theme["yellow-dark"]};
+    }
   }
 `
+

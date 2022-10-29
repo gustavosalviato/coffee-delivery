@@ -5,7 +5,8 @@ export const CardItemContainer = styled.li`
   display: flex;
   gap: 1.25rem;
   border-bottom: 1px solid ${props => props.theme["base-button"]};
-  padding-bottom: 0.75rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 
   & + li{
     margin-top: 0.75rem;

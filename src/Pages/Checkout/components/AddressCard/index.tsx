@@ -31,7 +31,7 @@ export const AddressCard = () => {
 				<PaymentsContainer>
 					<div>
 						<CreditCard size={16} />
-						<span>cartão de crédito</span>
+						cartão de crédito
 					</div>
 
 					<div>

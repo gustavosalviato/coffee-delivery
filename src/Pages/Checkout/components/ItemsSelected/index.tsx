@@ -4,10 +4,18 @@ import { CardItemSelected } from "../CardItemSelected"
 import { CardItemsSelected } from "./styles"
 import { formatPrice } from '../../../../helpers/formatPrice'
 
-export const ItemsSelected = () => {
-    const { cartItems, totalCart } = useCartContext()
+const DELIVERY_PRICE = 3.5
 
-    const formatTotalPrice = formatPrice(totalCart)
+export const ItemsSelected = () => {
+    const { cartItems, totalCart, cartQuantity } = useCartContext()
+
+    const formatTotalItensCart = formatPrice(totalCart)
+
+    const formatDeliveryPrice = formatPrice(DELIVERY_PRICE)
+
+    const totalCartItens = formatPrice(DELIVERY_PRICE + totalCart)
+
+    const disableButton = cartQuantity < 1
 
     return (
         <section>
@@ -25,21 +33,21 @@ export const ItemsSelected = () => {
                 <TotalSection>
                     <div className='defaultLabels'>
                         <span>Total Items</span>
-                        <strong>29,70</strong>
+                        <strong>{formatTotalItensCart}</strong>
                     </div>
 
                     <div className='defaultLabels'>
                         <span>Entrega</span>
-                        <strong>Grátis</strong>
+                        <strong>{formatDeliveryPrice}</strong>
                     </div>
 
                     <div className='totalLabels'>
                         <span>Total</span>
-                        <strong>{formatTotalPrice}</strong>
+                        <strong>{totalCartItens}</strong>
                     </div>
                 </TotalSection>
 
-                <ButtonContainer>
+                <ButtonContainer disabled={disableButton}>
                     CONFIRMAR
                 </ButtonContainer>
             </CardItemsSelected>

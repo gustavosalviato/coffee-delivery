@@ -69,8 +69,13 @@ export const ButtonContainer = styled.button`
   padding: 0.75rem 0.5rem;
   transition: 0.4s;
 
-  &:hover{
+  &:not(:disabled):hover{
     background: ${props => props.theme["yellow-dark"]};
+  }
+
+  &:disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 
 `
